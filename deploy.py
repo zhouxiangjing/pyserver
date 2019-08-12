@@ -15,7 +15,10 @@ def build():
     # includes = ['static', 'templates', 'transwarp', 'favicon.ico', '*.py']
     # excludes = ['test', '.*', '*.pyc', '*.pyo']
     # local('del dist\\%s' % _TAR_FILE)                   # 删除旧压缩包
-    tar = tarfile.open("deploy/dist/%s" % _TAR_FILE, "w:gz")    # 创建新压缩包
+    dist_path = 'deploy/dist/'
+    if not os.path.exists(dist_path):
+        os.makedirs(dist_path)
+    tar = tarfile.open(dist_path + _TAR_FILE, "w:gz")    # 创建新压缩包
     for root, _dir, files in os.walk("www/"):             # 打包www文件夹
         for f in files:
             if not (('.pyc' in f) or ('.pyo' in f)):    # 排除开发过程调试产生的文件，为了简单点实现，此处没有完全照搬廖老师的参数
@@ -29,6 +32,7 @@ def deploy():
     fabric_config = Config(overrides={'run': {'warn': True}})
     with Connection(host=remote_config['host'], user=remote_config['user'], config=fabric_config, connect_kwargs={'password': remote_config['password']}) as conn:
         wwwdir = 'www_%s' % datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S')
+
         conn.run('rm -rf %s' % _REMOTE_TMP_DIR)
         conn.run('mkdir %s' % _REMOTE_TMP_DIR)
         conn.put('deploy/dist/%s' % _TAR_FILE, _REMOTE_TMP_TAR)
