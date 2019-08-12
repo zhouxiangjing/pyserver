@@ -1,12 +1,11 @@
 
-import time
+import hashlib
 
-nn1 = time.time()
+sha1 = hashlib.sha1()
+sha1.update(b'865295386@qq.com')
+sha1.update(b':')
+sha1.update(b'123456')
 
-time.sleep(1)
+str = sha1.hexdigest()
 
-nn2 = time.time()
-
-nn = nn2 - nn1
-
-n = 0
+nn = 0

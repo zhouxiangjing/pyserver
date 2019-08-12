@@ -12,7 +12,7 @@ import markdown2
 from aiohttp import web
 
 from coroweb import get, post
-from apis import Page, APIValueError, APIResourceNotFoundError
+from apis import Page, APIValueError, APIResourceNotFoundError, APIPermissionError
 
 from models import User, Comment, Blog, Devices, next_id
 from config import configs
@@ -261,7 +261,8 @@ def api_register_user(*, email, name, passwd):
     return r
 
 @get('/api/online_devices')
-def api_online_devices(*, page='1'):
+def api_online_devices(request, *, page='1'):
+    check_admin(request)
     page_index = get_page_index(page)
     num = yield from Devices.findNumber(selectField='count(id)', where='(%ld - updated_at) < 7' % time.time())
     p = Page(num, page_index)
@@ -272,6 +273,7 @@ def api_online_devices(*, page='1'):
 
 @post('/api/devices')
 def api_devices(request, *, name, addr, mac):
+    check_admin(request)
     if not name or not name.strip():
         raise APIValueError('name', 'name cannot be empty.')
     if not addr or not addr.strip():
