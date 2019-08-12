@@ -1,3 +1,4 @@
 .idea/
 www/local_config/
+www/__pycache__/
 deploy/dist/dist-pyserver.tar.gz
