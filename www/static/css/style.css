@@ -41,39 +41,20 @@ a,a:hover{
 	margin-top: 30px;
 	margin-left: 20px;
 }*/
-.w_search{
-	float: right;
-	padding-right: 10px;
-	padding-left: 10px;
-	height: 80px;
-}
-.w_search .w_searchbox{
-	margin-top: 15px;
 
+.w_search {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width: 100%;
+	height: 150px;
 }
-.w_search .w_searchbox>input{
-	border: none;
-	height: 30px;
-	padding: 5px;
-	border-radius: 2px;
-	font-size: 14px;
-	border-top-left-radius: 3px;
-	border-bottom-left-radius: 3px;
-}
-.w_search .w_searchbox>input:focus{
-	outline: none;
-}
-.w_search .w_searchbox>button{
-	border: none;
-	height: 30px;
-	margin-left: -5px;
-	background-color: #DEDBDB;
-	width: 60px;
-	font-size: 14px;
-	border-top-right-radius: 3px;
-	border-bottom-right-radius: 3px;
 
+.search {
+	margin-top: 30px;
+	width: 60%;
 }
+
 
 .w_header_nav{
 	/*display: inline-block;*/
@@ -115,6 +96,7 @@ a,a:hover{
 	min-height: 100%;
 	padding: 55px 0px 40px 0px;
 }
+
 .w_main_row{
 	/*padding-left: 15px;
 	padding-right: 15px;*/
@@ -136,6 +118,74 @@ a,a:hover{
 .w_carousel .carousel-inner img{
 	width: 100%;
 	height: 350px;
+}
+
+.ulclass {
+	 height: 100px;
+	 list-style: none;
+	 margin: 0;
+	 padding: 0;
+ }
+.ulclass li{
+	width: 220px;
+	margin: 10px 20px;
+	display: inline-block;/*该处换为float: left;同样效果*/
+}
+
+.ulclassli1 {
+	background: url(https://oa.cmcm.com/favicon.ico);
+	background-repeat: no-repeat;
+	background-position: 5px 5px;
+	background-size: 28px 28px;
+}
+
+.ulclassli2 {
+	background: url(https://mail.google.com/favicon.ico);
+	background-repeat: no-repeat;
+	background-position: 5px 5px;
+	background-size: 28px 28px;
+}
+
+.ulclassli3 {
+	background: url(https://drive.google.com/favicon.ico);
+	background-repeat: no-repeat;
+	background-position: 5px 5px;
+	background-size: 28px 28px;
+}
+
+.ulclassli4 {
+	background: url(https://github.com/favicon.ico);
+	background-repeat: no-repeat;
+	background-position: 5px 5px;
+	background-size: 28px 28px;
+}
+
+.ulclassli5 {
+	background: url(https://email.163.com/favicon.ico);
+	background-repeat: no-repeat;
+	background-position: 5px 5px;
+	background-size: 28px 28px;
+}
+
+.ulclassli6 {
+	background: url(http://translate.google.cn/favicon.ico);
+	background-repeat: no-repeat;
+	background-position: 5px 5px;
+	background-size: 28px 28px;
+}
+
+.ulclassli7 {
+	background: url(../img/favicon.ico);
+	background-repeat: no-repeat;
+	background-position: 5px 5px;
+	background-size: 28px 28px;
+}
+
+.ulclass li a{
+	width: 220px;
+	height: 50px;
+	padding: 0px 40px;
+	font-size: 25px;
 }
 
 .contenttop:hover{
