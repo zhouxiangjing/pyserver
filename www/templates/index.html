@@ -15,6 +15,7 @@
         <script src="../static/js/jquery-3.4.1.min.js"></script>
         <script src="../static/js/bootstrap.min.js"></script>
         <!--http://www.html5code.net/demo/874/index.html-->
+        <script src="../static/js/custom.js"></script>
     </head>
     <body>
     <div class="w_header">
@@ -38,7 +39,7 @@
                     <div class="input-group">
 {#                        <img src="https://gss0.bdstatic.com/5bVWsj_p_tVS5dKfpU_Y_D3/res/r/image/2017-09-26/352f1d243122cf52462a2e6cdcb5ed6d.png">#}
                         <input type="text" class="form-control input-lg"/>
-                        <span class="input-group-addon btn btn-primary">百度一下</span>
+                        <span class="input-group-addon btn btn-primary" onclick="uploadFile()">百度一下</span>
                     </div>
                 </div>
             </div>
@@ -57,14 +58,19 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading">常用功能</div>
-                <div class="panel-body">
-                    <ul class="ulclass">
-                        <li><a href="https://www.baidu.com/">模糊变清晰</a></li>
-                        <li><a href="https://www.baidu.com/">小图变大图</a></li>
-                    </ul>
+                <div class="panel-heading">AI人工智能图片放大</div>
+                <div class="panel-body" style="margin: 10px 10px; border: 2px dashed #ccc">
+                    <button class="btn btn-lg btn-success" onclick="javascript:document.getElementById('fileupload').click();">
+                        选择文件
+                        <input style="display:none;" id="fileupload" type="file" name="file" accept="image/*" multiple="">
+                    </button>
+                    <div id="files"></div>
                 </div>
             </div>
+
+
+
+
             <div class="row w_main_row">
                 <div class="col-lg-9 col-md-9 w_main_left">
                     <!--滚动图开始-->

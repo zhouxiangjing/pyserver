@@ -1,6 +1,7 @@
 html,body{
 	height: 100%;
 	background: #ededed;
+	text-align: center;
 }
 *{
 	box-sizing: border-box;
