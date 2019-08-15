@@ -18,7 +18,7 @@ class MyFileSystemEventHander(FileSystemEventHandler):
         self.restart = fn
 
     def on_any_event(self, event):
-        if event.src_path.endswith('.py'):
+        if event.src_path.endswith('.py') or event.src_path.endswith('.html'):
             log('Python source file changed: %s' % event.src_path)
             self.restart()
 
@@ -61,8 +61,8 @@ if __name__ == '__main__':
     if not argv:
         print('Usage: ./pymonitor your-script.py')
         exit(0)
-    if argv[0] != 'python3':
-        argv.insert(0, 'python3')
+    if argv[0] != 'python':
+        argv.insert(0, 'python')
     command = argv
     path = os.path.abspath('.')
     start_watch(path, None)
